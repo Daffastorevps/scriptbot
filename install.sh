@@ -1,7 +1,7 @@
 #!/bin/bash
 # Installer Script VPN Xray: VMess, VLESS, Trojan
 
-REPO="https://raw.githubusercontent.com/script-vpn-premium/scriptbot/main"
+REPO="https://raw.githubusercontent.com/script-vpn-premium/scriptbot/main/script-vpn-premium"
 TARGET="/usr/bin"
 
 echo "🚀 Mengunduh dan memasang script..."
