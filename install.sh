@@ -39,4 +39,4 @@ ln -sf /etc/xray/add-ss /usr/bin/add-ss 2>/dev/null
 rm -rf $TEMP_DIR
 
 echo "✅ Instalasi selesai!"
-echo "➡️ Gunakan: add-vmess | add-vless | add-trojan | add-ss"
+echo "➡️ Gunakan: cerate di bot wa"
