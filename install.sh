@@ -1,24 +1,42 @@
 #!/bin/bash
-# Installer Script VPN Xray: VMess, VLESS, Trojan
 
-REPO="https://raw.githubusercontent.com/script-vpn-premium/scriptbot/main/script-vpn-premium"
-TARGET="/usr/bin"
+# Ganti ini dengan URL GitHub kamu kalau bukan public repo
+REPO_URL="https://github.com/script-vpn-premium/scriptbot.git"
+TEMP_DIR="/tmp/scriptbot-install"
 
-echo "🚀 Mengunduh dan memasang script..."
+# Update sistem dan install dependensi
+apt update && apt upgrade -y
+apt install curl git -y
 
-# Download semua script
-wget -q -O $TARGET/add-vmess $REPO/add-vmess
-wget -q -O $TARGET/add-vless $REPO/add-vless
-wget -q -O $TARGET/add-trojan $REPO/add-trojan
+# Hapus folder lama kalau ada
+rm -rf $TEMP_DIR
 
-# Beri izin agar bisa dieksekusi
-chmod +x $TARGET/add-vmess
-chmod +x $TARGET/add-vless
-chmod +x $TARGET/add-trojan
+# Clone repo ke /tmp
+git clone $REPO_URL $TEMP_DIR
 
-echo ""
+# Buat folder /etc/xray jika belum ada
+mkdir -p /etc/xray
+
+# Pindahkan script ke /etc/xray
+cp $TEMP_DIR/add-vmess /etc/xray/
+cp $TEMP_DIR/add-vless /etc/xray/
+cp $TEMP_DIR/add-trojan /etc/xray/
+cp $TEMP_DIR/add-ss /etc/xray/ 2>/dev/null # aman kalau tidak ada
+
+# Kasih izin eksekusi
+chmod +x /etc/xray/add-vmess
+chmod +x /etc/xray/add-vless
+chmod +x /etc/xray/add-trojan
+chmod +x /etc/xray/add-ss 2>/dev/null
+
+# Bikin symlink ke /usr/bin biar bisa langsung ketik perintah
+ln -sf /etc/xray/add-vmess /usr/bin/add-vmess
+ln -sf /etc/xray/add-vless /usr/bin/add-vless
+ln -sf /etc/xray/add-trojan /usr/bin/add-trojan
+ln -sf /etc/xray/add-ss /usr/bin/add-ss 2>/dev/null
+
+# Hapus folder clone sementara
+rm -rf $TEMP_DIR
+
 echo "✅ Instalasi selesai!"
-echo "🔧 Jalankan dengan:"
-echo "• add-vmess"
-echo "• add-vless"
-echo "• add-trojan"
+echo "➡️ Gunakan: add-vmess | add-vless | add-trojan | add-ss"
