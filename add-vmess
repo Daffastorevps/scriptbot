@@ -89,13 +89,13 @@ else
 fi
 systemctl restart nginx > /dev/null 2>&1
 service cron restart > /dev/null 2>&1
-echo -e "*✅ SUCCESS*"
-echo -e "*🔖 User* : ${user}"
-echo -e "*🌐 Domain* : ${domain}"
-echo -e "*📦 Quota* : ${Quota} GB"
-echo -e "*🔢 IP Limit* : ${iplimit} IP"
-echo -e "*⏰ Expired* : ${exp}"
-echo -e ""
-echo -e "*🔗 Link TLS* :*\n${vmesslink1}"
-echo -e "*🔗 Link Non-TLS* :*\n${vmesslink2}"
-echo -e "*🔗 Link GRPC* :*\n${vmesslink3}"
+echo "SUCCESS"
+echo "Remarks: ${user}"
+echo "Domain: ${domain}"
+echo "User Quota: ${Quota} GB"
+echo "User IP Limit: ${iplimit} IP"
+echo "UUID: ${uuid}"
+echo "Expired: ${exp}"
+echo "Link TLS: ${vmesslink1}"
+echo "Link none TLS: ${vmesslink2}"
+echo "Link GRPC: ${vmesslink3}"
