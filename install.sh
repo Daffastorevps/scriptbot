@@ -3,7 +3,7 @@
 # --- Konfigurasi awal ---
 REPO_URL="https://github.com/script-vpn-premium/scriptbot.git"
 TEMP_DIR="/tmp/scriptbot-install"
-WHITELIST_FILE="/etc/xray/allowed_ips.txt"
+WHITELIST_FILE="scriptbot/allowed_ips.txt"
 
 # --- Ambil IP publik VPS ---
 MY_IP=$(curl -s ipv4.icanhazip.com)
