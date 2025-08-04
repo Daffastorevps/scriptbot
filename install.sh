@@ -16,7 +16,7 @@ if curl -s "$WHITELIST_URL" | grep -q "$MY_IP"; then
   echo "✅ IP kamu terdaftar di whitelist."
 else
   echo "❌ Maaf, IP kamu ($MY_IP) tidak terdaftar di whitelist."
-  echo "➡️ Hubungi admin untuk mendaftarkan IP kamu."
+  echo "➡️ Hubungi admin 6285888801241 untuk mendaftarkan IP kamu."
   exit 1
 fi
 
