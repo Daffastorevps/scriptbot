@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # --- Konfigurasi awal ---
-REPO_URL="https://github.com/script-vpn-premium/scriptbot.git"
+REPO_URL="https://github.com/Daffastorevps/scriptbot.git"
 TEMP_DIR="/tmp/scriptbot-install"
-WHITELIST_URL="https://raw.githubusercontent.com/script-vpn-premium/scriptbot/main/allowed_ips.txt"
+WHITELIST_URL="https://raw.githubusercontent.com/Daffastorevps/scriptbot/main/allowed_ips.txt"
 
 # --- Warna ---
 YELLOW='\033[1;33m'
@@ -53,7 +53,7 @@ if curl -s "$WHITELIST_URL" | grep -q "$MY_IP"; then
   echo -e "✅ ${YELLOW}IP kamu terdaftar di whitelist.${NC}"
 else
   echo -e "❌ ${YELLOW}Maaf, IP kamu ($MY_IP) tidak terdaftar di whitelist.${NC}"
-  echo -e "➡️ ${YELLOW}Hubungi admin 6285888801241 untuk mendaftarkan IP kamu.${NC}"
+  echo -e "➡️ ${YELLOW}Hubungi admin 6287852291200 untuk mendaftarkan IP kamu.${NC}"
   echo -e "$LINE"
   exit 1
 fi
