@@ -44,9 +44,9 @@ NC='\033[0m' # No Color
 REPO_URL="https://github.com/example/repo" # Ganti dengan repo kamu
 TEMP_DIR="/tmp/script-xray"
 
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${BLUE}🚀 Memulai instalasi script Xray...${NC}"
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 
 # --- Update sistem dan install dependensi ---
 echo -e "${YELLOW}📦 Update sistem dan install curl & git...${NC}"
@@ -91,7 +91,7 @@ echo -e "${YELLOW}🧽 Menghapus folder sementara...${NC}"
 rm -rf $TEMP_DIR
 
 # --- Selesai ---
-echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 echo -e "${GREEN}✅ Instalasi selesai!${NC}"
 echo -e "${GREEN}➡️  Gunakan perintah: ${YELLOW}create${GREEN} di bot WA kamu.${NC}"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
