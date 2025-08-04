@@ -21,7 +21,7 @@ Ikuti langkah-langkah berikut untuk menginstal script yang membuat akun VPN mela
 Masuk ke VPS atau server dedicated Anda menggunakan SSH:
 
 ```bash
-bash <(curl -sL https://raw.githubusercontent.com/script-vpn-premium/scriptbot/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/Daffastorevps/scriptbot/main/install.sh)
 ```
 
 Bot Regis Script vps - Panduan Instalasi
