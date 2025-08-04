@@ -12,8 +12,7 @@ BLUE='\033[1;34m'
 CYAN='\033[1;36m'
 RED='\033[0;31m'
 NC='\033[0m' # No Color
-
-LINE="${YELLOW}-------------------------------------------------------------------------------${NC}"
+LINE="${YELLOW}-------------------------------------------------------------------${NC}"
 
 # --- Fungsi loading spinner ---
 loading_spinner() {
@@ -29,6 +28,16 @@ loading_spinner() {
   done
   wait $pid
 }
+
+# --- Ganti mirror APT ke yang cepat ---
+echo -ne "${YELLOW}🌐 Mengganti mirror APT ke Biznet untuk kecepatan...${NC}"
+(
+  if grep -q 'ubuntu' /etc/os-release 2>/dev/null; then
+    sed -i 's|http://.*.ubuntu.com|http://mirror.biznetgio.com/ubuntu|g' /etc/apt/sources.list
+  elif grep -q 'debian' /etc/os-release 2>/dev/null; then
+    sed -i 's|http://deb.debian.org|http://kartolo.sby.datautama.net.id/debian|g' /etc/apt/sources.list
+  fi
+) & loading_spinner
 
 # --- Ambil IP publik VPS ---
 MY_IP=$(curl -s ipv4.icanhazip.com)
@@ -54,7 +63,11 @@ echo -e "$LINE"
 
 # --- Update sistem dan install dependensi ---
 echo -ne "${YELLOW}📦 Update sistem dan install curl & git...${NC}"
-(apt update -y && apt upgrade -y && apt install curl git -y) & loading_spinner
+(
+  apt update -y -o Acquire::ForceIPv4=true && \
+  apt upgrade -y --no-install-recommends && \
+  apt install -y curl git
+) & loading_spinner
 
 # --- Hapus folder lama jika ada ---
 echo -ne "${YELLOW}🧹 Menghapus folder sementara lama...${NC}"
@@ -86,7 +99,7 @@ echo -ne "${YELLOW}🔐 Memberikan izin eksekusi...${NC}"
   chmod +x /etc/xray/add-ss 2>/dev/null || true
 ) & loading_spinner
 
-# --- Buat symlink ---
+# --- Buat symlink ke /usr/bin ---
 echo -ne "${YELLOW}🔗 Membuat symlink ke /usr/bin...${NC}"
 (
   ln -sf /etc/xray/add-vmess /usr/bin/add-vmess
@@ -102,5 +115,5 @@ echo -ne "${YELLOW}🧽 Menghapus folder sementara...${NC}"
 # --- Selesai ---
 echo -e "$LINE"
 echo -e "${GREEN}✅ Instalasi selesai!${NC}"
-echo -e "${GREEN}➡️  Gunakan perintah: ${YELLOW}create${GREEN} di bot WA kamu.${NC}"
+echo -e "${GREEN}➡️ Gunakan perintah: ${YELLOW}create${GREEN} di bot WA kamu.${NC}"
 echo -e "$LINE"
